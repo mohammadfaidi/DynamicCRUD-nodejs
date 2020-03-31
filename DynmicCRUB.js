@@ -1,3 +1,4 @@
+
 const fs = require('fs')
 const readline = require('readline').createInterface({
     input: process.stdin,
@@ -32,7 +33,7 @@ function write() {
 function read() {
     readline.question("Man focus with me !! tell me the name of file before *_* !!!: ", function (file) {
         fs.readFile(`C:/Users/Dell/Desktop/ ${file}!.txt`, 'utf8', function (err, contents) {
-            console.log("Be patient noob :"+contents);
+            console.log("Here we go :"+contents);
         });
         console.log('as the requested my friend!!!   *_* *_* *_*');
         readline.close();
@@ -52,8 +53,9 @@ function remove() {
     });
 
 }
-var num;
-function loop() {
+
+function doFile() {
+
 //console.log(`choose an option:`)
     console.log(`[1] Create a File`)
     console.log('[2] Write aFile')
@@ -61,7 +63,7 @@ function loop() {
     console.log('[4] remove aFile')
     console.log('\n')
 //here we choose option
-    readline.question('Choose an option myfriend :* :-) *_* :', function (no) {
+    readline.question('Choose an option  :* :-) *_* :', function (no) {
         var num = parseInt(`${no}`, 10);
         console.log(`${no}`);
         switch (num) {
@@ -76,7 +78,6 @@ function loop() {
                 break;
             case 4:
                 remove();
-                loop();
                 break;
             default:
                 console.log("You Particular input out of the range")
@@ -87,4 +88,5 @@ function loop() {
     });
 }
 
-loop();
+
+doFile();

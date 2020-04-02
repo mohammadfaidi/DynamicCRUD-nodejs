@@ -1,28 +1,31 @@
-
 const fs = require('fs')
 const readline = require('readline').createInterface({
     input: process.stdin,
     output: process.stdout
 });
-
-function create() {
+const mycreate =() =>{
     //console.log("hello one")
     readline.question("Select a name for file please *_*:", function (file) {
         //console.log(`Hey there ${file}!`);
-        fs.writeFile(`C:/Users/Dell/Desktop/ ${file}!.txt`, ' ', (err) => {
+        fs.writeFile(`C:/Users/moham/Desktop/ ${file}!.txt`, ' ', (err) => {
             if (err) throw err;
-            console.log(err)
+            console.log("Done")
+
         });
         console.log('oh you my man  we did it  *_*');
         readline.close();
     });
 }
-function write() {
+
+
+
+ const write = () => {
     readline.question("Man focus with me !! tell me the name of file before *_* !!!: ", function (file) {
-        readline.question(" *_* So we are friend now, you can feel free to write any message sweety:  ", function (Data) {
-            fs.writeFile(`C:/Users/Dell/Desktop/ ${file}!.txt`, `${Data}`, function (err) {
+        readline.question(" *_* So we are friend now, you can feel free to write any message sweety: ", function (Data) {
+            fs.appendFile(`C:/Users/moham/Desktop/ ${file}!.txt`, `${Data}`+"\n", function (err) {
                 if (err) throw err;
-                console.log(err)
+                console.log("Done");
+
             });
             console.log('oh great  *_* *_* *_*');
             readline.close();
@@ -30,23 +33,27 @@ function write() {
         });
     });
 }
-function read() {
+
+const read =() => {
     readline.question("Man focus with me !! tell me the name of file before *_* !!!: ", function (file) {
-        fs.readFile(`C:/Users/Dell/Desktop/ ${file}!.txt`, 'utf8', function (err, contents) {
+        fs.readFile(`C:/Users/moham/Desktop/ ${file}!.txt`, 'utf8', function (err, contents) {
             console.log("Here we go :"+contents);
         });
         console.log('as the requested my friend!!!   *_* *_* *_*');
         readline.close();
     });
+
 }
-function remove() {
+
+
+const remove =()=> {
     //console.log("Hello four")
     readline.question("Don't leave me alone please but tell me name of file  :( !!!: ", function (file) {
-        const path = `C:/Users/Dell/Desktop/ ${file}!.txt`
+        const path = `C:/Users/moham/Desktop/ ${file}!.txt`
         try {
             fs.unlinkSync(path)
         } catch(err) {
-            console.error(err)
+            console.error("Done")
         }
         console.log('I will mise you sweety !!!   so sadly');
         readline.close();
@@ -54,7 +61,8 @@ function remove() {
 
 }
 
-function doFile() {
+
+const doFile = () => {
 
 //console.log(`choose an option:`)
     console.log(`[1] Create a File`)
@@ -68,10 +76,10 @@ function doFile() {
         console.log(`${no}`);
         switch (num) {
             case 1:
-                create();
+                mycreate();
                 break;
             case 2:
-                 write();
+                write();
                 break;
             case 3:
                 read();
@@ -88,5 +96,5 @@ function doFile() {
     });
 }
 
-
 doFile();
+
